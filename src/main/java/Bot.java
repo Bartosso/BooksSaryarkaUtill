@@ -60,6 +60,7 @@ public class Bot extends TelegramLongPollingBot {
                             .indexOf(".")),this.sendDocument(new SendDocument().setChatId(chatId)
                     .setNewDocument(aFList.getName().substring(0,aFList.getName().indexOf(".")),inputStream))
                     .getDocument().getFileId()));
+                    System.out.println("Upload of "+ aFList.getName() + " done");
                 } catch (TelegramApiException ignored){
             }
             inputStream.close();
@@ -72,6 +73,7 @@ public class Bot extends TelegramLongPollingBot {
         }
         DBService db = new DBService();
         db.addBooks(bookArrayList);
+        System.out.println("Загрузка книг завершена, доброго пути!");
 
     }
 }
